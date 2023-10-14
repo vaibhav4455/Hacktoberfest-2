@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class SecondMaxNumber {
+
+    public static Integer findSecondMax(List<Integer> numbers) {
+        if (numbers == null || numbers.size() < 2) {
+            return null; // Not enough elements to find the second maximum
+        }
+
+        // Sort the list in descending order
+        Collections.sort(numbers, Collections.reverseOrder());
+
+        // The second maximum will be at index 1 (0-based index)
+        return numbers.get(1);
+    }
+
+    public static void main(String[] args) {
+        List<Integer> numberList = new ArrayList<>();
+        numberList.add(5);
+        numberList.add(10);
+        numberList.add(7);
+        numberList.add(12);
+        numberList.add(3);
+
+        Integer secondMax = findSecondMax(numberList);
+
+        if (secondMax != null) {
+            System.out.println("The second maximum number is: " + secondMax);
+        } else {
+            System.out.println("The list does not have a second maximum.");
+        }
+    }
+}
